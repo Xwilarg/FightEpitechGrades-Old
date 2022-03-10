@@ -1,0 +1,98 @@
+Hi, welcome on this little tutorial about how to make an AI.
+
+You MUST write your code un ai_new.cpp
+For beginning, please write your code after the following line :
+Ai ai(me, enemy, xWin, yWin, canFire);
+and please stay in the brackets.
+Please make not we won't allow your AI if it can do more than 1 action in one function call (see bellow)
+
+You can find explanations about all the functions in ai.hpp
+
+There are 2 kind of commands:
+
+* The instruction:
+ai.instruction();
+
+You can replace 'instruction' by the instruction you want to give to your AI.
+ai.jump();
+ai.fireRed();
+Etc...
+
+
+* The condition:
+
+if (ai.function() == 1)
+{
+  // Then to that
+}
+else if (ai.function() == 2)
+{
+  // Then do that
+}
+else
+{
+  // Then do that
+}
+
+You can replace function by the function you want to call.
+Your AI can must not do more than 1 instruction by function call. An instruction is something that will affect your AI in game.
+
+if (ai.getLifeMe() < 50)
+{
+  if (ai.getYPosAiDown() <= getYSizeScreen / 2 && ai.getLifeMe() < 25)
+  {
+    ai.fall();
+  }
+  else
+  {
+    ai.jump();
+  }
+}
+else
+{
+  ai.moveLeft();
+}
+
+This code was correct because the AI can only do one instruction before lefting the function.
+Comparaisons operator:
+==    is equal to
+!=    is different to
+<     is inferior to
+<=    is inferior or equal to
+>     is superior to
+>=    is superior or equal to
+More than one conditions in a if:
+&&    and
+||    or
+
+Once you will have finish your AI, you can write 'make re' in the console to compill, then you can execute the program.
+
+
+COMPILATION ERRORS:
+This part cover errors who happen the more often.
+Correcting an error can sometimes solve the ones who follow.
+Please also check that you didn't write something stupid.
+
+error: expected ';' before 'else'
+---> Check if you didn't forget a semicolon
+
+error: 'jump" was not declared in this scope
+---> Check if you didn't forget to write 'ai.' before your function name
+
+error: invalid use of non-static member function
+---> check if you didn't forget to write the 2 parenthesis aften your function name
+
+error: no matching function for call to 'Ai::randomNumber()'
+---> some functions take a number in parameter, please check ai.hpp to see what they need, this error can also happen if you didn't write the fuction name's correcly.
+
+error: lvalue required as left operand of assignment
+---> you need to write 2 equals '==' to compare 2 values
+
+error: expected ')' before '{' token
+---> count your parenthesis, you must have as much as opening than closing parenthesis
+
+error: expected primary-expression before ')' token
+---> count your parenthesis, you must have as much as opening than closing parenthesis
+
+warning: suggest parentheses around '&&' within '||'
+---> the compilator suggest you to use parenthesis to clarify which instruction set of instructions will be done first
